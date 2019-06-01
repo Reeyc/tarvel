@@ -5,9 +5,9 @@
         <swiper-slide v-for="(page,index) of pages" :key="index">
           <div class="icon" v-for="item of page" :key="item.id">
             <div class="icon-img">
-              <img :src="item.iconImg" class="icon-content-img">
+              <img :src="item.imgUrl" class="icon-content-img">
             </div>
-            <p class="icon-desc">{{item.iconDesc}}</p>
+            <p class="icon-desc">{{item.desc}}</p>
           </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -28,73 +28,14 @@
 
 <script>
 export default {
+  props: {
+    iconList: Array
+  },
   data() {
     return {
       swiperOption: {
         pagination: ".swiper-pagination" //页码圆点类名
-      },
-      iconList: [
-        {
-          iconId: 1,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png",
-          iconDesc: "热门景点"
-        },
-        {
-          iconId: 2,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1804/5a/13ceb38dcf262f02.png",
-          iconDesc: "一日游"
-        },
-        {
-          iconId: 3,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png",
-          iconDesc: "海口必游"
-        },
-        {
-          iconId: 4,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png",
-          iconDesc: "动植物园"
-        },
-        {
-          iconId: 5,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/47/c2b659e048b11602.png",
-          iconDesc: "亲子乐园"
-        },
-        {
-          iconId: 6,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/75/eca3ce656c886502.png",
-          iconDesc: "探秘火山"
-        },
-        {
-          iconId: 7,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/95/8246f27355943202.png",
-          iconDesc: "玩转长影"
-        },
-        {
-          iconId: 8,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1803/27/dac2bcf9added702.png",
-          iconDesc: "分界洲特价"
-        },
-        {
-          iconId: 9,
-          iconImg:
-            "http://img1.qunarzz.com/piao/fusion/1805/3a/754b47f658e9c602.png",
-          iconDesc: "琼中峡漂游"
-        },
-        {
-          iconId: 9,
-          iconImg:
-            "http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/3a0879f224e0aca97843bff78cabac3a.png",
-          iconDesc: "海上观光"
-        }
-      ]
+      }
     };
   },
   computed: {

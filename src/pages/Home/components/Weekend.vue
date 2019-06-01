@@ -1,13 +1,13 @@
 <template>
   <div>
     <h2>周末去哪儿</h2>
-    <div class="weekend" v-for="item of weekendList" :key="item.weekendId">
+    <div class="weekend" v-for="item of weekendList" :key="item.id">
       <div class="weekend-img">
-        <img :src="item.weekendImg">
+        <img :src="item.imgUrl">
       </div>
       <div class="weekend-info">
-        <p class="weekend-title">{{item.weekendTitle}}</p>
-        <p class="weekend-desc">{{item.weekendDesc}}</p>
+        <p class="weekend-title">{{item.title}}</p>
+        <p class="weekend-desc">{{item.desc}}</p>
       </div>
     </div>
   </div>
@@ -15,34 +15,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      weekendList: [
-        {
-          weekendId: 1,
-          weekendImg:
-            "http://img1.qunarzz.com/sight/source/1505/7c/a25a4a312c43e4.jpg_r_640x214_1dc90053.jpg",
-          weekendTitle: "海口必游",
-          weekendDesc: "自然天堂，舒心之地"
-        },
-        {
-          weekendId: 2,
-          weekendImg:
-            "http://img1.qunarzz.com/sight/source/1505/3e/a588a413145dbe.jpg_r_640x214_b3729b6e.jpg",
-          weekendTitle: "小清新帆船出海",
-          weekendDesc:
-            "完整体验驾驶帆船出海的乐趣，感受不一样的海上休闲，体验无限驰骋的空间"
-        },
-        {
-          weekendId: 3,
-          weekendImg:
-            "http://img1.qunarzz.com/sight/source/1602/bf/a2ac57b8bfe7cd.jpg_r_640x214_406d4c7e.jpg",
-          weekendTitle: "城会玩儿游艇大趴",
-          weekendDesc:
-            "想不想和小伙伴们来一场刺激又好玩的游艇旅行，这里有最具特色的游艇大趴"
-        }
-      ]
-    };
+  props: {
+    weekendList: Array
   }
 };
 </script>
