@@ -1,18 +1,28 @@
 <template>
-  <div class="icons">
-    <swiper :options="swiperOption" class="icons-swiper">
-      <!-- 轮播滑动效果是在分页上的，因此swiper-slide组件要遍历的是大数组[pages]来渲染分页 -->
-      <swiper-slide v-for="(page,index) of pages" :key="index">
-        <!-- 取得小数组后渲染数据 -->
-        <div class="icon" v-for="item of page" :key="item.id">
-          <div class="icon-img">
-            <img :src="item.iconImg" class="icon-content-img">
+  <div>
+    <div class="icons">
+      <swiper :options="swiperOption" class="icons-swiper">
+        <swiper-slide v-for="(page,index) of pages" :key="index">
+          <div class="icon" v-for="item of page" :key="item.id">
+            <div class="icon-img">
+              <img :src="item.iconImg" class="icon-content-img">
+            </div>
+            <p class="icon-desc">{{item.iconDesc}}</p>
           </div>
-          <p class="icon-desc">{{item.iconDesc}}</p>
-        </div>
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+        </swiper-slide>
+        <div class="swiper-pagination" slot="pagination"></div>
+      </swiper>
+    </div>
+    <ul class="location">
+      <li>
+        <span class="iconfont location-icon">&#xe61f;</span>
+        定位失败
+      </li>
+      <li>
+        <span class="iconfont location-icon">&#xe719;</span>
+        必游榜单
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -91,11 +101,11 @@ export default {
     pages() {
       const pages = [];
       this.iconList.forEach((item, index) => {
-        const page = Math.floor(index / 8); //图标对应的页码
+        const page = Math.floor(index / 8);
         if (!pages[page]) {
-          pages[page] = []; //新的页码, 则在这页码上创建一个数组
+          pages[page] = [];
         }
-        pages[page].push(item); //添加元素
+        pages[page].push(item);
       });
       return pages;
     }
@@ -125,4 +135,19 @@ export default {
   color: $darkTextColor
   margin-top: 0.1rem
   font-size: 0.28rem
+.location
+  display: flex
+.location>li
+  border-top: 1px #ccc solid
+  border-right: 1px #ccc solid
+  height: 0.98rem
+  line-height: 0.98rem
+  float: left
+  text-align: center
+  flex: 1
+.location>li:last-child
+  border-right: none
+.location-icon
+  margin-right: 0.05rem
+  font-size: 0.32rem
 </style>
