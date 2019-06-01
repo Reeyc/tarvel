@@ -31,9 +31,10 @@ export default {
         }
       ],
       swiperOption: {
+        effect: "fade",
         pagination: ".swiper-pagination", //页码圆点类名
         autoplay: true, //自动播放
-        speed: 1500, //播放速度
+        speed: 2000, //播放速度
         loop: true //循环播放
       }
     };

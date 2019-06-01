@@ -13,8 +13,8 @@
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
     </div>
-    <ul class="location">
-      <li>
+    <ul class="location border-top">
+      <li class="border-right">
         <span class="iconfont location-icon">&#xe61f;</span>
         定位失败
       </li>
@@ -115,9 +115,11 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/varibles.styl'
+@import '~styles/mixins.styl'
 .icons >>> .icons-swiper
   padding-top: 0.1rem
   height: 3.8rem
+  background-color: #fff
 .icons >>> .swiper-pagination-bullet
   width: 6px
   height: 6px
@@ -135,19 +137,18 @@ export default {
   color: $darkTextColor
   margin-top: 0.1rem
   font-size: 0.28rem
+  ellipsis()
 .location
   display: flex
+  background-color: #fff
 .location>li
-  border-top: 1px #ccc solid
-  border-right: 1px #ccc solid
-  height: 0.98rem
   line-height: 0.98rem
-  float: left
   text-align: center
   flex: 1
-.location>li:last-child
-  border-right: none
+  ellipsis()
 .location-icon
   margin-right: 0.05rem
   font-size: 0.32rem
+.border-top::before, .border-right::before
+  border-color: #ccc
 </style>
