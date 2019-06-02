@@ -42,4 +42,5 @@ export default {};
   color: #666
   padding: 0 0.1rem
   box-sizing: border-box
+  font-family: none
 </style>
