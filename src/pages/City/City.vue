@@ -1,8 +1,8 @@
 <template>
   <div>
     <city-header></city-header>
-    <city-list :hotCities="hotCities" :cities="cities"></city-list>
-    <city-alphabet :cities="cities"></city-alphabet>
+    <city-list :hotCities="hotCities" :cities="cities" :letters="letters"></city-list>
+    <city-alphabet :cities="cities" @change="changeHandle"></city-alphabet>
   </div>
 </template>
 
@@ -19,7 +19,8 @@ export default {
   data() {
     return {
       hotCities: [],
-      cities: {}
+      cities: {},
+      letters: ""
     };
   },
   created() {
@@ -33,6 +34,7 @@ export default {
       });
   },
   methods: {
+    //获取城市数据
     requestCityDate(res) {
       res = res.data;
       if (res.ret && res.data) {
@@ -40,6 +42,10 @@ export default {
         this.hotCities = data.hotCities;
         this.cities = data.cities;
       }
+    },
+    //接收数据
+    changeHandle(data) {
+      this.letters = data;
     }
   }
 };

@@ -20,7 +20,7 @@
         </div>
       </div>
       <!-- 列表城市 -->
-      <div class="area" v-for="(item,key) of cities" :key="key">
+      <div class="area" v-for="(item,key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list" v-for="city of item" :key="city.id">
           <div class="item border-bottom">{{city.name}}</div>
@@ -35,10 +35,21 @@ import BScroll from "better-scroll";
 export default {
   props: {
     hotCities: Array,
-    cities: Object
+    cities: Object,
+    letters: String
   },
   mounted() {
-    const scroll = new BScroll(this.$refs.wrapper);
+    this.$nextTick(() => {
+      //Dom更新之后初始化Better-Scroll
+      this.scroll = new BScroll(this.$refs.wrapper);
+    });
+  },
+  watch: {
+    letters() {
+      //scrollToElement()使列表加载到参数指定的Dom元素
+      const element = this.$refs[this.letters][0];
+      this.scroll.scrollToElement(element);
+    }
   }
 };
 </script>
@@ -85,3 +96,5 @@ export default {
   line-height: 0.76rem
   padding-left: 0.2rem
 </style>
+
+
