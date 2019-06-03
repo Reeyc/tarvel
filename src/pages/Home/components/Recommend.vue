@@ -36,7 +36,7 @@ h2
   flex: 1
   background-color: #fff
   padding: 0.14rem 0.2rem 0.2rem 0.2rem
-  min-width: 0 /* flex容器要设置min-width保证内容不允许超出父元素 */
+  min-width: 0
 .recommend-title
   font-size: 0.32rem
   line-height: 0.54rem
