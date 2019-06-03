@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import store from './store'
 import axios from 'axios'
 import VueAwesomeSwiper from 'vue-awesome-swiper' //轮播图
 import fastClick from 'fastClick' //解决移动端点击300ms问题
@@ -18,6 +19,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: {
     App
   },
