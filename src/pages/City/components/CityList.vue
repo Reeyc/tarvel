@@ -40,10 +40,7 @@ export default {
     letters: String
   },
   mounted() {
-    this.$nextTick(() => {
-      //Dom更新之后初始化Better-Scroll
-      this.scroll = new BScroll(this.$refs.wrapper);
-    });
+    this.scroll = new BScroll(this.$refs.wrapper);
   },
   computed: {
     ...mapState(["city"])
