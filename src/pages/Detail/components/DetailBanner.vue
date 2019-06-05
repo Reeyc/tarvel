@@ -1,18 +1,16 @@
 <template>
   <div>
     <div class="detail-banner" @click="clickHanlde">
-      <img
-        src="http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_600x330_bf9c4904.jpg"
-      >
+      <img :src="bannerImg">
       <div class="detail-banner-info">
-        <div class="detail-banner-title">海洋馆</div>
+        <div class="detail-banner-title">{{sightName}}</div>
         <div class="detail-banner-number">
           <span class="iconfont detail-banner-icon">&#xe69d;</span>
-          26
+          {{gallaryImgs.length}}
         </div>
       </div>
     </div>
-    <Gallary :swiperImg="swiperImg" v-show="showGallary" @close="closeGallary"></Gallary>
+    <Gallary :swiperImg="gallaryImgs" v-show="showGallary" @close="closeGallary"></Gallary>
   </div>
 </template>
 
@@ -24,12 +22,13 @@ export default {
   },
   data() {
     return {
-      swiperImg: [
-        "http://img1.qunarzz.com/sight/p0/201404/23/04b92c99462687fa1ba45c1b5ba4ad77.jpg_800x800_70debc93.jpg",
-        "http://img1.qunarzz.com/sight/p0/1709/76/7691528bc7d7ad3ca3.img.png_800x800_9ef05ee7.png"
-      ],
       showGallary: false
     };
+  },
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
   },
   methods: {
     clickHanlde() {

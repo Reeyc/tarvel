@@ -2,7 +2,12 @@
   <div>
     <h2>热销推荐</h2>
     <div class="recommend" v-for="item of recommendList" :key="item.id">
-      <router-link to="/detail" tag="img" :src="item.imgUrl" class="recommend-img"></router-link>
+      <router-link
+        :to="{name:'detail',params:{id:item.id}}"
+        tag="img"
+        :src="item.imgUrl"
+        class="recommend-img"
+      ></router-link>
       <div class="recommend-info">
         <div class="recommend-title">{{item.title}}</div>
         <div class="recommend-desc">{{item.desc}}</div>

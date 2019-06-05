@@ -55,7 +55,7 @@ export default {
   height: 0.8rem
   line-height: 0.8rem
   border-radius: 0.4rem
-  background-color: rgba(0, 0, 0, 0.8)
+  background-color: rgba(0, 0, 0, 0.5)
   text-align: center
 .detail-header-back
   color: #fff

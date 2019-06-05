@@ -18,9 +18,12 @@ export default new Router({
     }, {
       path: '/city',
       name: 'city',
+      meta: {
+        keepAlive: true
+      },
       component: City
     }, {
-      path: '/detail',
+      path: '/detail/:id',
       name: 'detail',
       component: Detail
     }
