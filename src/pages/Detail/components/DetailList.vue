@@ -8,16 +8,17 @@
     >
       <span class="item-title-icon"></span>
       {{item.title}}
-      <transition name="show">
+      <fade-animated>
         <div v-if="item.children" class="item-leave-title" v-show="isShow">
           <detail-list :list="item.children"></detail-list>
         </div>
-      </transition>
+      </fade-animated>
     </div>
   </div>
 </template>
 
 <script>
+import FadeAnimated from "common/fade/FadeAnimated";
 export default {
   name: "DetailList",
   props: {
@@ -33,6 +34,9 @@ export default {
       if (e.target.children.length <= 1) return;
       this.isShow = !this.isShow;
     }
+  },
+  components: {
+    FadeAnimated
   }
 };
 </script>
@@ -55,10 +59,8 @@ export default {
   position: relative
   top: 0.1rem
   left: 0.1rem
-.show-enter-active, .show-leave-active
+.item-title .v-enter-active, .item-title .v-leave-active
   transition: all 0.2s
-.show-enter, .show-leave-active
-  opacity: 0
 </style>
 
 

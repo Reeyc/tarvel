@@ -15,7 +15,7 @@
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
           <div class="button-wrapper" v-for="item of hotCities" :key="item.id">
-            <div class="button" @click="handleClick(item.name)">{{item.name}}</div>
+            <div class="button" @click.prevent="handleClick(item.name)">{{item.name}}</div>
           </div>
         </div>
       </div>
@@ -39,8 +39,10 @@ export default {
     cities: Object,
     letters: String
   },
-  mounted() {
-    this.scroll = new BScroll(this.$refs.wrapper);
+  created() {
+    this.$nextTick(() => {
+      this.scroll = new BScroll(this.$refs.wrapper);
+    });
   },
   computed: {
     ...mapState(["city"])

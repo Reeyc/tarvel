@@ -20,7 +20,7 @@ export default {
         pagination: ".swiper-pagination", //页码圆点类名
         autoplay: 3000, //播放且每页停留3秒
         autoplayDisableOnInteraction: false, //触摸后不停止
-        speed: 2000, //播放速度
+        speed: 500, //播放速度
         loop: true, //循环播放
         observer: true, //修改swiper子元素时自动初始化swiper
         observeParents: true //修改swiper父元素时自动初始化swiper

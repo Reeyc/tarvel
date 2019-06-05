@@ -11,7 +11,11 @@
       <div class="recommend-info">
         <div class="recommend-title">{{item.title}}</div>
         <div class="recommend-desc">{{item.desc}}</div>
-        <router-link to="/detail" tag="button" class="recommend-btn">查看详情</router-link>
+        <router-link
+          :to="{name:'detail',params:{id:item.id}}"
+          tag="button"
+          class="recommend-btn"
+        >查看详情</router-link>
       </div>
     </div>
   </div>

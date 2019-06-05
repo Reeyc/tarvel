@@ -10,15 +10,19 @@
         </div>
       </div>
     </div>
-    <Gallary :swiperImg="gallaryImgs" v-show="showGallary" @close="closeGallary"></Gallary>
+    <fade-animated>
+      <Gallary :swiperImg="gallaryImgs" v-show="showGallary" @close="closeGallary"></Gallary>
+    </fade-animated>
   </div>
 </template>
 
 <script>
 import Gallary from "common/gallary/Gallary";
+import FadeAnimated from "common/fade/FadeAnimated";
 export default {
   components: {
-    Gallary
+    Gallary,
+    FadeAnimated
   },
   data() {
     return {
