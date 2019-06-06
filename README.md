@@ -1,1 +1,4 @@
-vue学习日记之移动端旅游网站开发 --home-content
+Vue2.5+VueRouter+Vuex+Axios 开发去哪儿移动端小项目
+
+安装依赖
+npm install
